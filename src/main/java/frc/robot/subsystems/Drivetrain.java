@@ -1,5 +1,7 @@
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.NeutralMode;
+import com.ctre.phoenix.motorcontrol.TalonFXInvertType;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import com.kauailabs.navx.frc.AHRS;
 
@@ -14,6 +16,8 @@ import edu.wpi.first.math.kinematics.MecanumDriveWheelSpeeds;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.commands.ArcadeDrive;
 import edu.wpi.first.wpilibj.SPI;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import static frc.robot.Constants.*;
 
 public class Drivetrain extends SubsystemBase {
@@ -35,6 +39,16 @@ public class Drivetrain extends SubsystemBase {
         frontRMotor.configFactoryDefault();
         rearLMotor.configFactoryDefault();
         rearRMotor.configFactoryDefault();
+
+        frontRMotor.setInverted(true);
+        rearRMotor.setInverted(true);
+
+        frontLMotor.setNeutralMode(NeutralMode.Brake);
+        frontRMotor.setNeutralMode(NeutralMode.Brake);
+        rearLMotor.setNeutralMode(NeutralMode.Brake);
+        rearRMotor.setNeutralMode(NeutralMode.Brake);
+
+
         gyro.reset();
         odometry = new MecanumDriveOdometry(kinematics, gyro.getRotation2d());
         setDefaultCommand(new ArcadeDrive(this));
@@ -82,16 +96,25 @@ public class Drivetrain extends SubsystemBase {
 
 
     public void drive(ChassisSpeeds speeds){
+        SmartDashboard.putNumber("rotSpd", speeds.omegaRadiansPerSecond);
         MecanumDriveWheelSpeeds whlSpeeds = kinematics.toWheelSpeeds(speeds);
         setSpeeds(whlSpeeds);
     }
 
     public void setSpeeds(MecanumDriveWheelSpeeds speeds) {
+        SmartDashboard.putNumber("fl", speeds.frontLeftMetersPerSecond);
+        SmartDashboard.putNumber("fr", speeds.frontRightMetersPerSecond);
+        SmartDashboard.putNumber("rl", speeds.rearLeftMetersPerSecond);
+        SmartDashboard.putNumber("rr", speeds.rearRightMetersPerSecond);
         // something like // something like // something like thats something like:
         double flVoltage = feedFoward.calculate(speeds.frontLeftMetersPerSecond);
         double frVoltage = feedFoward.calculate(speeds.frontRightMetersPerSecond);
         double rlVoltage = feedFoward.calculate(speeds.rearLeftMetersPerSecond);
         double rrVoltage = feedFoward.calculate(speeds.rearRightMetersPerSecond);
+        SmartDashboard.putNumber("flV", flVoltage);
+        SmartDashboard.putNumber("frV", frVoltage);
+        SmartDashboard.putNumber("rlV", rlVoltage);
+        SmartDashboard.putNumber("rrV", rrVoltage);
         setVoltages(flVoltage, frVoltage, rlVoltage, rrVoltage);  
     }
 

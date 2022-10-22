@@ -4,6 +4,7 @@ package frc.robot.commands;
 import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import static frc.robot.Constants.*;
 /** An example command that uses an example subsystem. */
@@ -29,9 +30,12 @@ public class ArcadeDrive extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    var vx = controller.getLeftY();
+    var vx = -controller.getLeftY();
     var vy = controller.getLeftX();
     var rot = controller.getRightX();
+    SmartDashboard.putNumber("vx", vx);
+    SmartDashboard.putNumber("vy", vy);
+    SmartDashboard.putNumber("rot", rot);
     m_subsystem.drive(new ChassisSpeeds(vx * DRIVE_SPEED, vy * DRIVE_SPEED, rot * ROTATE_SPEED));
   }
 
