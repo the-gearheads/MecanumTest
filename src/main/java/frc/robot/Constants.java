@@ -1,7 +1,6 @@
 // Copyright (c) FIRST and other WPILib contributors.
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
-
 package frc.robot;
 
 import edu.wpi.first.math.geometry.Pose2d;
@@ -38,12 +37,13 @@ public final class Constants {
     public static double ROTATE_SPEED = 1.0; 
 
     public static final double TALON_UNITS_PER_ROTATION = 2048;
-    public static final double SHAFT_TO_WHEEL_GEAR_RATIO = 12.75;
-    public static final double WHEEL_CIRCUMFERENCE = 8 * 0.0254 * Math.PI; // 4in wheel?
-    public static final double WHEEL_RADIUS = 4 * 0.0254;
+    public static final double SHAFT_TO_WHEEL_GEAR_RATIO = (8.46/1)/1;
+    public static final double WHEEL_RADIUS = 3 * 0.0254;
+    public static final double WHEEL_CIRCUMFERENCE = 2 * WHEEL_RADIUS * Math.PI;
 
     public static double FF_KS = 0.0;
     public static double FF_KV = 0.0;
     public static double FF_KA = 0.0;
      
+
 }
