@@ -22,13 +22,13 @@ import edu.wpi.first.math.geometry.Translation2d;
 public final class Constants {
 
     public static final int BMOTOR_LEFT = 3;
-    public static final Translation2d BMOTOR_LEFT_POS = new Translation2d(-0.10, -0.10);
+    public static final Translation2d BMOTOR_LEFT_POS = new Translation2d(-0.10, 0.10);
     public static final int BMOTOR_RIGHT = 4;
-    public static final Translation2d BMOTOR_RIGHT_POS = new Translation2d(0.10, -0.10);
+    public static final Translation2d BMOTOR_RIGHT_POS = new Translation2d(-0.10, -0.10);
     public static final int FMOTOR_LEFT = 1;
-    public static final Translation2d FMOTOR_LEFT_POS = new Translation2d(-0.1, 0.10);
+    public static final Translation2d FMOTOR_LEFT_POS = new Translation2d(0.1, 0.10);
     public static final int FMOTOR_RIGHT = 2;
-    public static final Translation2d FMOTOR_RIGHT_POS = new Translation2d(0.1, 0.1);
+    public static final Translation2d FMOTOR_RIGHT_POS = new Translation2d(0.1, -0.1);
 
     public static final Pose2d DEFUALT_POS = new Pose2d(0,0, new Rotation2d(0));
 
