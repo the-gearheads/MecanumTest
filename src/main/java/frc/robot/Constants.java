@@ -34,8 +34,9 @@ public final class Constants {
 
     public static double DRIVE_SPEED = 2.0;
     public static double MAX_SPEED = 2.0;
-    public static double ROTATE_SPEED = 2.0; 
-
+    public static double ROTATE_SPEED = 2.0;
+    public static double ACCEL_SPEED = 0.05;
+    
     public static final double TALON_UNITS_PER_ROTATION = 2048;
     public static final double SHAFT_TO_WHEEL_GEAR_RATIO = (8.46/1)/1;
     public static final double WHEEL_RADIUS = 3 * 0.0254;

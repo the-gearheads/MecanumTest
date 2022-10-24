@@ -7,11 +7,16 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import static frc.robot.Constants.*;
+import java.util.Timer;
+import java.util.TimerTask;
+
 /** An example command that uses an example subsystem. */
 public class ArcadeDrive extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final Drivetrain m_subsystem;
   private final XboxController controller = new XboxController(00);
+
+
   /**
    * Creates a new ExampleCommand.
    *
@@ -33,10 +38,12 @@ public class ArcadeDrive extends CommandBase {
     var vx = -controller.getLeftY();
     var vy = controller.getLeftX();
     var rot = controller.getRightX();
+    var RightTrigger = controller.getRightTriggerAxis()*2.0;
     SmartDashboard.putNumber("vx", vx);
     SmartDashboard.putNumber("vy", vy);
     SmartDashboard.putNumber("rot", rot);
-    m_subsystem.drive(new ChassisSpeeds(vx * DRIVE_SPEED, vy * DRIVE_SPEED, rot * ROTATE_SPEED));
+    SmartDashboard.putNumber("RightTrigger", RightTrigger);
+    m_subsystem.drive(new ChassisSpeeds(vx * DRIVE_SPEED * (RightTrigger+1), vy * DRIVE_SPEED* (RightTrigger+1), rot * ROTATE_SPEED * (RightTrigger+1)));
   }
 
   // Called once the command ends or is interrupted.
