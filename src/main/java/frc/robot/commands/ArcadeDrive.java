@@ -7,8 +7,6 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import static frc.robot.Constants.*;
-import java.util.Timer;
-import java.util.TimerTask;
 
 /** An example command that uses an example subsystem. */
 public class ArcadeDrive extends CommandBase {

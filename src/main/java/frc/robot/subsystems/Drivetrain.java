@@ -121,7 +121,7 @@ public class Drivetrain extends SubsystemBase {
     public void setVoltages(double fLeftVoltage, double fRightVoltage, double rLeftVoltage, double rRightVoltage) {
         frontLMotor.setVoltage(MathUtil.clamp(fLeftVoltage, -12, 12));
         frontRMotor.setVoltage(MathUtil.clamp(fRightVoltage, -12, 12));
-        rearRMotor.setVoltage(MathUtil.clamp(rRightVoltage, -120, 12));
+        rearRMotor.setVoltage(MathUtil.clamp(rRightVoltage, -12, 12));
         rearLMotor.setVoltage(MathUtil.clamp(rLeftVoltage, -12, 12));
     }
    public MecanumDriveWheelSpeeds getWheelSpeeds(){
