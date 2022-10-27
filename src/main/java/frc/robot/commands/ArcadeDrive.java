@@ -36,8 +36,9 @@ public class ArcadeDrive extends CommandBase {
     var vx = -controller.getLeftY(); 
     var vy = -controller.getLeftX();
     var rot = -controller.getRightX();
-    var RightTrigger = controller.getRightTriggerAxis()*2.0;
-    var LeftTrigger = controller.getRightTriggerAxis()*4.0;
+    var RightTrigger = controller.getRightTriggerAxis()*TURBO_SPEED;
+    var LeftTrigger = controller.getRightTriggerAxis()*TURBO_ROT_SPEED; // you cant put the entire calculation there, it wouldnt work or make any sense
+    // its alomost 
     SmartDashboard.putNumber("vx", vx);
     SmartDashboard.putNumber("vy", vy);
     SmartDashboard.putNumber("rot", rot);
