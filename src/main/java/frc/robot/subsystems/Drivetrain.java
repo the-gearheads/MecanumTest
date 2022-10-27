@@ -80,7 +80,10 @@ public class Drivetrain extends SubsystemBase {
     public void driveFieldRelative(ChassisSpeeds chassisSpeeds) {
         var speeds = ChassisSpeeds.fromFieldRelativeSpeeds(chassisSpeeds.vxMetersPerSecond,
                 chassisSpeeds.vyMetersPerSecond, chassisSpeeds.omegaRadiansPerSecond, getPose().getRotation());
-        drive(speeds);
+        driveFieldRelative(speeds);
+        SmartDashboard.putNumber("rotSpd", speeds.omegaRadiansPerSecond);
+        MecanumDriveWheelSpeeds whlSpeeds = kinematics.toWheelSpeeds(speeds);
+        setSpeeds(whlSpeeds);
     }
 
     /* Converts native velocity units to m/s */
@@ -94,12 +97,12 @@ public class Drivetrain extends SubsystemBase {
         odometry.update(gyro.getRotation2d(), getWheelSpeeds());
     }
 
-
+/* 
     public void drive(ChassisSpeeds speeds){
         SmartDashboard.putNumber("rotSpd", speeds.omegaRadiansPerSecond);
         MecanumDriveWheelSpeeds whlSpeeds = kinematics.toWheelSpeeds(speeds);
         setSpeeds(whlSpeeds);
-    }
+    }*/
 
     public void setSpeeds(MecanumDriveWheelSpeeds speeds) {
         SmartDashboard.putNumber("fl", speeds.frontLeftMetersPerSecond);

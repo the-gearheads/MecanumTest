@@ -45,7 +45,7 @@ public class ArcadeDrive extends CommandBase {
     SmartDashboard.putNumber("rot", rot);
     SmartDashboard.putNumber("RightTrigger", RightTrigger);
     SmartDashboard.putNumber("LeftTrigger", LeftTrigger);
-    m_subsystem.drive(new ChassisSpeeds(vx * DRIVE_SPEED * (RightTrigger+1), vy * DRIVE_SPEED* (RightTrigger+1), rot * ROTATE_SPEED * (LeftTrigger+1)));
+    m_subsystem.driveFieldRelative(new ChassisSpeeds(vx * DRIVE_SPEED * (RightTrigger+1), vy * DRIVE_SPEED* (RightTrigger+1), rot * ROTATE_SPEED * (LeftTrigger+1)));
   }
 
   // Called once the command ends or is interrupted.
