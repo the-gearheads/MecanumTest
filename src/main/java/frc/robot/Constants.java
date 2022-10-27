@@ -6,6 +6,7 @@ package frc.robot;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.geometry.Translation2d;
+import edu.wpi.first.wpilibj.XboxController;
 
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide
@@ -20,7 +21,6 @@ import edu.wpi.first.math.geometry.Translation2d;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-
     public static final int BMOTOR_LEFT = 3;
     public static final Translation2d BMOTOR_LEFT_POS = new Translation2d(-0.10, 0.10);
     public static final int BMOTOR_RIGHT = 4;
@@ -36,6 +36,9 @@ public final class Constants {
     public static double MAX_SPEED = 2.0;
     public static double ROTATE_SPEED = 6.0;
     public static double ACCEL_SPEED = 0.05;
+    
+    public static double TURBO_SPEED = 2;
+    public static double TURBO_ROT_SPEED = 4;
     
     public static final double TALON_UNITS_PER_ROTATION = 2048;
     public static final double SHAFT_TO_WHEEL_GEAR_RATIO = (8.46/1)/1;
