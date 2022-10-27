@@ -33,9 +33,9 @@ public class ArcadeDrive extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    var vx = -controller.getLeftY();
-    var vy = controller.getLeftX();
-    var rot = controller.getRightX();
+    var vx = -controller.getLeftY(); 
+    var vy = -controller.getLeftX();
+    var rot = -controller.getRightX();
     var RightTrigger = controller.getRightTriggerAxis()*2.0;
     var LeftTrigger = controller.getRightTriggerAxis()*4.0;
     SmartDashboard.putNumber("vx", vx);
